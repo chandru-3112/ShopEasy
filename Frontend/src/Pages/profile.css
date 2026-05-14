@@ -1,0 +1,380 @@
+.profile-page {
+  padding: 40px;
+  max-width: 900px;
+  margin: 0 auto;
+  animation: pageLoad 0.6s ease both;
+}
+
+@keyframes pageLoad {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Header */
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: linear-gradient(135deg, #e44d26, #f7b733);
+  padding: 32px;
+  border-radius: 16px;
+  color: white;
+  margin-bottom: 24px;
+  animation: headerSlide 0.6s ease both;
+}
+
+@keyframes headerSlide {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.avatar-wrap {
+  position: relative;
+}
+
+.avatar-wrap img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 3px solid rgba(255,255,255,0.6);
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.avatar-wrap:hover img {
+  transform: scale(1.05);
+}
+
+.avatar-badge {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: white;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  transition: transform 0.2s;
+}
+
+.avatar-badge:hover {
+  transform: scale(1.2);
+}
+
+.profile-header-info h1 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.profile-header-info p {
+  font-size: 14px;
+  opacity: 0.85;
+  margin-bottom: 6px;
+}
+
+.joined {
+  font-size: 12px;
+  background: rgba(255,255,255,0.2);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+/* Stats */
+.profile-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.stat-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+  opacity: 0;
+  animation: statPop 0.5s ease forwards;
+  transition: transform 0.2s;
+}
+
+.stat-card:nth-child(1) { animation-delay: 0.1s; }
+.stat-card:nth-child(2) { animation-delay: 0.2s; }
+.stat-card:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes statPop {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+}
+
+.stat-card h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #e44d26;
+  margin-bottom: 4px;
+}
+
+.stat-card p {
+  font-size: 13px;
+  color: #888;
+}
+
+/* Tabs */
+.profile-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.tab-btn {
+  padding: 10px 22px;
+  border-radius: 8px;
+  border: 1.5px solid #ddd;
+  background: white;
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tab-btn:hover {
+  border-color: #e44d26;
+  color: #e44d26;
+}
+
+.tab-btn.active {
+  background-color: #e44d26;
+  border-color: #e44d26;
+  color: white;
+  box-shadow: 0 4px 12px rgba(228,77,38,0.25);
+}
+
+/* Content */
+.profile-content {
+  animation: fadeIn 0.4s ease both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.profile-card {
+  background: white;
+  border-radius: 14px;
+  padding: 28px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.card-header h2 {
+  font-size: 17px;
+  font-weight: 700;
+  color: #333;
+}
+
+.edit-toggle {
+  background: none;
+  border: 1.5px solid #e44d26;
+  color: #e44d26;
+  padding: 6px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.edit-toggle:hover {
+  background: #e44d26;
+  color: white;
+}
+
+/* Info Grid */
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 600px) {
+  .info-grid { grid-template-columns: 1fr; }
+  .profile-stats { grid-template-columns: 1fr; }
+}
+
+.info-item label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.info-item p {
+  font-size: 15px;
+  color: #333;
+  font-weight: 500;
+}
+
+.info-item input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.info-item input:focus {
+  border-color: #e44d26;
+  box-shadow: 0 0 0 3px rgba(228,77,38,0.1);
+}
+
+.email-lock {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.email-lock span {
+  font-size: 11px;
+  background: #fff5f2;
+  color: #e44d26;
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+
+.save-btn {
+  margin-top: 24px;
+  padding: 12px 28px;
+  background-color: #e44d26;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  animation: fadeIn 0.3s ease both;
+}
+
+.save-btn:hover {
+  background-color: #c73d1d;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(228,77,38,0.3);
+}
+
+/* Address */
+.add-address-btn {
+  background: none;
+  border: 1.5px dashed #e44d26;
+  color: #e44d26;
+  padding: 6px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.add-address-btn:hover {
+  background: #fff5f2;
+}
+
+.address-card {
+  background: #fafafa;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1.5px solid #eee;
+  animation: fadeIn 0.4s ease both;
+  transition: transform 0.2s;
+}
+
+.address-card:hover {
+  transform: translateX(4px);
+}
+
+.address-card.default {
+  border-color: #e44d26;
+  border-left: 4px solid #e44d26;
+}
+
+.address-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.default-badge {
+  font-size: 11px;
+  background: #e44d26;
+  color: white;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.address-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.address-actions button {
+  background: none;
+  border: 1.5px solid #ddd;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  color: #555;
+  transition: all 0.2s;
+}
+
+.address-actions button:hover {
+  border-color: #e44d26;
+  color: #e44d26;
+}
+
+.address-card h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.address-card p {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.7;
+}
+
+.success-msg {
+  background: #f0fff4;
+  color: #27ae60;
+  padding: 12px 20px;
+  border-radius: 10px;
+  border-left: 4px solid #27ae60;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  animation: fadeIn 0.4s ease both;
+}

@@ -1,0 +1,244 @@
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #fff5f2, #fff);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background Circles */
+.bg-circle {
+  position: absolute;
+  border-radius: 50%;
+  animation: floatCircle 6s ease-in-out infinite alternate;
+}
+
+.circle-1 {
+  width: 300px;
+  height: 300px;
+  background: rgba(228, 77, 38, 0.07);
+  top: -80px;
+  left: -80px;
+  animation-duration: 7s;
+}
+
+.circle-2 {
+  width: 200px;
+  height: 200px;
+  background: rgba(247, 183, 51, 0.08);
+  bottom: -60px;
+  right: -60px;
+  animation-duration: 5s;
+}
+
+.circle-3 {
+  width: 150px;
+  height: 150px;
+  background: rgba(228, 77, 38, 0.05);
+  top: 50%;
+  right: 10%;
+  animation-duration: 9s;
+}
+
+@keyframes floatCircle {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(20px, 15px) scale(1.1); }
+}
+
+/* Card */
+.login-card {
+  background: white;
+  padding: 48px 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  animation: cardPop 0.6s ease both;
+}
+
+@keyframes cardPop {
+  from { opacity: 0; transform: translateY(30px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Logo */
+.login-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.login-logo span {
+  font-size: 36px;
+  animation: logoBounce 1s ease infinite alternate;
+}
+
+@keyframes logoBounce {
+  from { transform: translateY(0); }
+  to { transform: translateY(-6px); }
+}
+
+.login-logo h1 {
+  font-size: 26px;
+  font-weight: 800;
+  color: #e44d26;
+}
+
+.login-card h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 8px;
+  animation: fadeDown 0.5s ease 0.2s both;
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.login-subtitle {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 32px;
+  animation: fadeDown 0.5s ease 0.3s both;
+}
+
+/* Google Button */
+.google-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 14px 20px;
+  border: 1.5px solid #ddd;
+  border-radius: 10px;
+  background: white;
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+  animation: fadeUp 0.5s ease 0.4s both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.google-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(66, 133, 244, 0.08),
+    transparent
+  );
+  transition: left 0.4s ease;
+}
+
+.google-btn:hover::before {
+  left: 100%;
+}
+
+.google-btn:hover {
+  border-color: #4285F4;
+  box-shadow: 0 4px 16px rgba(66, 133, 244, 0.2);
+  transform: translateY(-2px);
+}
+
+.google-btn.loading {
+  background: #f5f5f5;
+  cursor: not-allowed;
+}
+
+.google-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Spinner */
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2.5px solid #ddd;
+  border-top-color: #e44d26;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Divider */
+.login-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0;
+  color: #ccc;
+  font-size: 13px;
+  animation: fadeUp 0.5s ease 0.5s both;
+}
+
+.login-divider::before,
+.login-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}
+
+/* Guest Button */
+.guest-btn {
+  width: 100%;
+  padding: 12px;
+  border: 1.5px solid #eee;
+  border-radius: 10px;
+  background: #fafafa;
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s;
+  animation: fadeUp 0.5s ease 0.6s both;
+}
+
+.guest-btn:hover {
+  border-color: #e44d26;
+  color: #e44d26;
+  background: #fff5f2;
+  transform: translateY(-2px);
+}
+
+/* Info */
+.login-info {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid #f0f0f0;
+  animation: fadeUp 0.5s ease 0.7s both;
+}
+
+.login-info p {
+  font-size: 12px;
+  color: #bbb;
+  margin-bottom: 4px;
+}
